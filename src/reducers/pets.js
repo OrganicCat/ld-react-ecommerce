@@ -1,6 +1,6 @@
 const pet = (state = {}, action) => {
     switch (action.type) {
-        case 'ADD_PETS':
+        case 'ADD_PET':
             return {
                 id: action.id,
                 description: action.description
@@ -12,10 +12,15 @@ const pet = (state = {}, action) => {
 
 const pets = (state = {}, action) => {
     switch (action.type) {
-        case 'ADD_PETS':
+        case 'ADD_PET':
             return [
                 ...state,
                 pet(undefined, action)
+            ]
+        case 'ADD_PETS':
+            return [
+                ...state,
+                ...action.pets
             ]
         default:
             return state

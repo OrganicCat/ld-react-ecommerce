@@ -7,3 +7,4 @@ export const AddButton = (props) => {
         <button className="add-button" onClick={handleClick}>Add Numbers</button>
     )
 }
+
