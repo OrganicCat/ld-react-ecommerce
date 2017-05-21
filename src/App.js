@@ -7,7 +7,7 @@ import { add } from './utils/addHelper'
 
 import { connect } from 'react-redux'
 
-
+import { BodyComponent } from './components/BodyComponent'
 import { loadPetDetail } from './utils/marketService'
 import { addPetAction } from './actions/addPetAction'
 
@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        
+        <BodyComponent />
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
@@ -36,6 +36,7 @@ class App extends Component {
     );
   }
 }
+
 App = connect()(App)
 
 export default App;

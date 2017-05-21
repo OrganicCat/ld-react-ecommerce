@@ -6,12 +6,6 @@ import logo from '../logo.svg';
 
 let Header = (props, morestuff, whoknows, evenmore, teststack) => {
 
-    console.log("now here", props)
-    if (props.pets) {
-        console.log("now here2: ", props.pets)
-    }    
-    
-
     return (
         <div className="App-header">
             <img src={logo} onClick={props.onClick} className="App-logo" alt="logo" />
@@ -32,7 +26,7 @@ const mapDispatchToProps = (dispatch, state) => {
     onClick: () => {
         dispatch({
             type: 'ADD_PETS',
-            pets: [ {
+            pets: [{
                 description: 'fluffy'
             },
             {
@@ -42,7 +36,6 @@ const mapDispatchToProps = (dispatch, state) => {
                 description: 'curly'
             }]
         })
-        console.log("this state", state)
     }
   }
 }
