@@ -4,7 +4,8 @@ const Pet = (props) => {
 
     return (
         <div>
-            {props.description}
+            <p>{props.description}</p>
+            <img src={props.icon} />
         </div>
     )
 }

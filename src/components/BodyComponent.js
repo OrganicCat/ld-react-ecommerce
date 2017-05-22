@@ -7,13 +7,12 @@ const BodyComponent = (props) => {
     let petArray = ""
 
     if (props.pets.length > 0) {
-        petArray =  props.pets.map((item, index) => <Pet {...item} key={index} /> )
+        petArray =  props.pets.map((item, index) => <Pet {...item} key={item.id} /> )
     }
 
     return (
         <div>
             {petArray}
-            Cats
         </div>
     )
 }

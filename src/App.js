@@ -8,18 +8,13 @@ import { add } from './utils/addHelper'
 import { connect } from 'react-redux'
 
 import { BodyComponent } from './components/BodyComponent'
-import { loadPetDetail } from './utils/marketService'
+
 import { addPetAction } from './actions/addPetAction'
 
 class App extends Component {
  
   componentDidMount() {
-    loadPetDetail([1,4,5])
-      .then((response) => {
-        
-        // this.setState({pets: response})
-        // dispatch(addPetAction(response))
-      });
+    
   }
 
   
@@ -29,9 +24,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <BodyComponent />
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        Click the Spinny React Icon to load Pets
       </div>
     );
   }
