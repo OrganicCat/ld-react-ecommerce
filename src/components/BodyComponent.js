@@ -5,14 +5,27 @@ import { Pet } from './Pet'
 let BodyComponent = (props) => {
 
     let petArray = ""
+    let cartArray = ""
 
     if (props.pets.length > 0) {
         petArray =  props.pets.map((item, index) => <Pet {...item} handleAdd={props.handleAdd} key={index} /> )
     }
 
+    if (props.cart.length > 0) {
+        console.log("cart", props.cart)
+        cartArray = props.cart.map((item, index) => <div key={index}><b>{item.name}</b></div>)
+    }
+
     return (
         <div>
-            {petArray}
+            <div>
+                <u>Cart:</u>
+                <div>{cartArray}</div>
+            </div>
+            <div>
+                <u>Pet List</u>
+                {petArray}
+            </div>
         </div>
     )
 }
