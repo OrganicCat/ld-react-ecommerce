@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { Pet } from './Pet'
 
-const BodyComponent = (props) => {
+let BodyComponent = (props) => {
 
     let petArray = ""
 
     if (props.pets.length > 0) {
-        petArray =  props.pets.map((item, index) => <Pet {...item} key={item.id} /> )
+        petArray =  props.pets.map((item, index) => <Pet {...item} handleAdd={props.handleAdd} key={index} /> )
     }
 
     return (
@@ -18,14 +18,27 @@ const BodyComponent = (props) => {
 }
 
 const mapStateToProps = (store) => {
+    console.log(store)
   return {
-    pets: store.pets
+    pets: store.pets,
+    cart: store.cart
+  }
+}
+
+const mapDispatchToProps = (dispatch, state) => {
+  return {
+    handleAdd: (pet) => {
+        dispatch({
+            type: 'CART_ADD',
+            item: pet
+        })
+    }
   }
 }
 
 BodyComponent = connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(BodyComponent)
 
 export { BodyComponent }
